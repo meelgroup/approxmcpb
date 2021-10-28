@@ -1,0 +1,6 @@
+[submodule "utils/gtest"]
+	path = utils/gtest
+	url = https://github.com/stp/googletest.git
+[submodule "src/linpb"]
+	path = src/linpb
+	url = https://github.com/meelgroup/linpb.git
