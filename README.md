@@ -97,7 +97,7 @@ Next, follow the above build process, but configure with the cmake option `-Dsop
 cmake -Dsoplex=ON ..
 ```
 
-# How to Use
+## How to Use
 Run the following command:
 ```
 $ approxmcpb /path/to/file
