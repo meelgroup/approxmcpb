@@ -61,8 +61,8 @@ cmake ..
 make
 sudo make install
 cd ../..
-git clone --recurse-submodules git@github.com:meelgroup/approxmcpb-private.git
-cd approxmcpb-private
+git clone --recurse-submodules https://github.com/meelgroup/approxmcpb.git
+cd approxmcpb
 mkdir build && cd build
 cmake ..
 make
