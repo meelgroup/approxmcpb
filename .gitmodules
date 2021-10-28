@@ -3,4 +3,4 @@
 	url = https://github.com/stp/googletest.git
 [submodule "src/linpb"]
 	path = src/linpb
-	url = https://github.com/meelgroup/linpb.git
+	url = git@github.com:meelgroup/linpb.git
