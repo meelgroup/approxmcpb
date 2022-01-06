@@ -1,7 +1,7 @@
 # ApproxMCPB: Approximate Model Counter for PB Constraints
 
 [![CP](https://img.shields.io/badge/CP-2021-blue.svg)](https://drops.dagstuhl.de/opus/volltexte/2021/15349/)
-[![Dataset](https://img.shields.io/badge/paper-Dataset-yellow.svg)](https://doi.org/10.5281/zenodo.5815039)
+[![Dataset](https://img.shields.io/badge/paper-Dataset-yellow.svg)](https://doi.org/10.5281/zenodo.5526834)
 [![Underlying Solver](https://img.shields.io/badge/solver-LinPB-red.svg)](https://github.com/meelgroup/linpb)
 
 Approximate Model Counter for linear pseudo boolean and xor constraints, built on top of the PB-XOR solver [LinPB](https://github.com/meelgroup/linpb) and approximate model counter [ApproxMC](https://github.com/meelgroup/approxmc). 
