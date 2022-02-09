@@ -52,15 +52,8 @@ yum install zlib-devel zlib-static boost-devel
 ```
 You have to install m4ri manually on CentOS.
 
-Then, build CryptoMiniSat and ApproxMCPB:
+Then, build ApproxMCPB:
 ```
-git clone https://github.com/msoos/cryptominisat
-cd cryptominisat
-mkdir build && cd build
-cmake ..
-make
-sudo make install
-cd ../..
 git clone --recurse-submodules https://github.com/meelgroup/approxmcpb.git
 cd approxmcpb
 mkdir build && cd build
