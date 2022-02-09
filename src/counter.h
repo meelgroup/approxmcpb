@@ -36,7 +36,7 @@
 #include <map>
 #include <cstdint>
 #include <mutex>
-#include <cryptominisat5/cryptominisat.h>
+#include "cryptominisat5/cryptominisat.h"
 #include "approxmc.h.in"
 #include "constants.h"
 #include "roundingsat.h"

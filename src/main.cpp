@@ -39,8 +39,8 @@ using std::vector;
 #include <gmp.h>
 
 #include "approxmc.h.in"
-#include <cryptominisat5/dimacsparser.h>
-#include <cryptominisat5/streambuffer.h>
+#include "cryptominisat5/dimacsparser.h"
+#include "cryptominisat5/streambuffer.h"
 #include "roundingsat.h"
 
 // using namespace CMSat;

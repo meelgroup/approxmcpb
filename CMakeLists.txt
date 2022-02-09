@@ -444,17 +444,6 @@ else()
     message(FATAL_ERROR  "Cannot find GMP. Please install it! Exiting.")
 endif()
 
-find_package(cryptominisat5 CONFIG)
-if (cryptominisat5_FOUND)
-    message(STATUS "Found CryptoMiniSat 5.x")
-    message(STATUS "CryptoMiniSat5 dynamic lib: ${CRYPTOMINISAT5_LIBRARIES}")
-    message(STATUS "CryptoMiniSat5 static lib:  ${CRYPTOMINISAT5_STATIC_LIBRARIES}")
-    message(STATUS "CryptoMiniSat5 static lib deps: ${CRYPTOMINISAT5_STATIC_LIBRARIES_DEPS}")
-    message(STATUS "CryptoMiniSat5 include dirs: ${CRYPTOMINISAT5_INCLUDE_DIRS}")
-else()
-    message(FATAL_ERROR "Cannot find CryptoMiniSat5. Please install it! Exiting.")
-endif()
-
 # -----------------------------------------------------------------------------
 # Provide an export name to be used by targets that wish to export themselves.
 # -----------------------------------------------------------------------------

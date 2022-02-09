@@ -119,7 +119,6 @@ add_executable(approxmcpb-bin
 set(approxmcpb_exec_link_libs
     ${Boost_LIBRARIES}
     ${GMP_LIBRARY}
-    ${CRYPTOMINISAT5_LIBRARIES}
 )
 
 IF (ZLIB_FOUND)
