@@ -79,17 +79,6 @@ git pull
 git submodule update --init
 ```
 
-### SoPlex
-
-RoundingSat Underlying LinPB supports an integration with the LP solver SoPlex to improve its search routine.
-
-For this, first download SoPlex at [here](https://soplex.zib.de/download.php?fname=soplex-5.0.1.tgz) and place the downloaded file in the root directory of LinPB, i.e. ./src/linpb/ .
-Next, follow the above build process, but configure with the cmake option `-Dsoplex=ON`:
-
-```
-cmake -Dsoplex=ON ..
-```
-
 ## How to Use
 Run the following command:
 ```
@@ -99,17 +88,6 @@ Find more arguments:
 ```
 $ approxmcpb --help
 ```
-
-### Potential Bug
-
-You may encounter a failed assertion if using SoPlex:
-
-`spxdevexpr.hpp:695: soplex::SPxId soplex::SPxDevexPR<R>::selectEnterHyperCoDim(R&, R) [with R = double]: 
-Assertion 'bestPricesCo.size() == 0' failed.`
-
-The bug will be fixed in the upcoming bugfix release of SoPlex, clarified by SoPlex team. Before that, you can simply comment out this assertion.
-
-Integration with SoPlex is under test. We recommend to remove it if you encountered other errors with SoPlex.
 
 ## References
 
