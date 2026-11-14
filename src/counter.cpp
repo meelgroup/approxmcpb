@@ -146,7 +146,7 @@ SolNum Counter::bounded_sol_count(
         HashesModels* hm
 ) {
     if (conf.verb) {
-        cout << "c [appmc] "
+        cout << "c [appmcpb] "
         "[ " << std::setw(7) << std::setprecision(2) << std::fixed
         << (cpuTimeTotal()-startTime)
         << " ]"
@@ -175,14 +175,14 @@ SolNum Counter::bounded_sol_count(
 
     if (conf.simplify >= 2) {
         if (conf.verb >= 2) {
-            cout << "c [appmc] inter-simplifying" << endl;
+            cout << "c [appmcpb] inter-simplifying" << endl;
         }
         double myTime = cpuTime();
         // solver->simplify(&new_assumps);
         // solver->set_verbosity(0);
         total_inter_simp_time += cpuTime() - myTime;
         if (conf.verb >= 1) {
-            cout << "c [appmc] inter-simp finished, total simp time: "
+            cout << "c [appmcpb] inter-simp finished, total simp time: "
             << total_inter_simp_time << endl;
         }
 
@@ -201,7 +201,7 @@ SolNum Counter::bounded_sol_count(
         assert(ret == l_False || ret == l_True);
 
         if (conf.verb >= 2) {
-            cout << "c [appmc] bounded_sol_count ret: " << std::setw(7) << ret;
+            cout << "c [appmcpb] bounded_sol_count ret: " << std::setw(7) << ret;
             if (ret == l_True) {
                 cout << " sol no.  " << std::setw(3) << solutions;
             } else {
@@ -241,7 +241,7 @@ SolNum Counter::bounded_sol_count(
             lits.push_back(Lit(var, solver->get_model()[var] == l_True));
         }
         if (conf.verb_cls) {
-            cout << "c [appmc] Adding banning clause: " << lits << endl;
+            cout << "c [appmcpb] Adding banning clause: " << lits << endl;
         }
         solver->add_clause(lits);
     }
@@ -265,7 +265,7 @@ SolNum Counter::bounded_sol_count(
 void Counter::print_final_count_stats(ApproxMC::SolCount solCount)
 {
     if (solCount.hashCount == 0 && solCount.cellSolCount == 0) {
-        cout << "c [appmc] Formula was UNSAT " << endl;
+        cout << "c [appmcpb] Formula was UNSAT " << endl;
     }
 
     if (conf.verb > 2) {
@@ -286,11 +286,11 @@ ApproxMC::SolCount Counter::solve(Config _conf)
     print_final_count_stats(solCount);
 
     if (conf.verb) {
-        cout << "c [appmc] FINISHED ApproxMC T: "
+        cout << "c [appmcpb] FINISHED ApproxMC T: "
         << (cpuTimeTotal() - startTime) << " s"
         << endl;
         if (solCount.hashCount == 0 && solCount.cellSolCount == 0) {
-            cout << "c [appmc] Formula was UNSAT " << endl;
+            cout << "c [appmcpb] Formula was UNSAT " << endl;
         }
     }
 
@@ -328,7 +328,7 @@ vector<Lit> Counter::set_num_hashes(
 void Counter::simplify()
 {
     if (conf.verb >= 1) {
-        cout << "c [appmc] simplifying" << endl;
+        cout << "c [appmcpb] simplifying" << endl;
     }
     /*
     solver->set_sls(1);
@@ -377,7 +377,7 @@ void Counter::set_up_probs_threshold_measurements(
 
     if (conf.verb) {
         cout
-        << "c [appmc] threshold set to " << threshold
+        << "c [appmcpb] threshold set to " << threshold
         << " sparse: " << (int)using_sparse
         << endl;
     }
@@ -400,11 +400,11 @@ ApproxMC::SolCount Counter::count()
     set_up_probs_threshold_measurements(measurements, sparse_data);
     
     if (conf.verb) {
-        cout << "c [appmc] Starting up, initial measurement" << endl;
+        cout << "c [appmcpb] Starting up, initial measurement" << endl;
     }
     if (hashCount == 0) {
         if (conf.verb) {
-            cout << "c [appmc] Checking if there are at least threshold+1 solutions..." << endl;
+            cout << "c [appmcpb] Checking if there are at least threshold+1 solutions..." << endl;
         }
         double myTime = cpuTime();
         if (conf.simplify >= 1) {
@@ -417,7 +417,7 @@ ApproxMC::SolCount Counter::count()
         ).solutions;
 
         if (conf.verb >= 2) {
-            cout << "c [appmc] Initial number of solutions: " << init_num_sols << endl;
+            cout << "c [appmcpb] Initial number of solutions: " << init_num_sols << endl;
         }
 
         write_log(false, //not sampling
@@ -428,7 +428,7 @@ ApproxMC::SolCount Counter::count()
         //Din't find at least threshold+1
         if (init_num_sols <= threshold) {
             if (conf.verb) {
-                cout << "c [appmc] Did not find at least threshold+1 ("
+                cout << "c [appmcpb] Did not find at least threshold+1 ("
                 << threshold << ") we found only " << init_num_sols
                 << ", i.e. we got exact count" << endl;
             }
@@ -442,7 +442,7 @@ ApproxMC::SolCount Counter::count()
         hashCount++;
     }
     if (conf.verb) {
-        cout << "c [appmc] Starting at hash count: " << hashCount << endl;
+        cout << "c [appmcpb] Starting at hash count: " << hashCount << endl;
     }
     int64_t mPrev = hashCount;
 
@@ -558,7 +558,7 @@ void Counter::one_measurement_count(
         const vector<Lit> assumps = set_num_hashes(hashCount, hm.hashes, sparse_data);
 
         if (conf.verb) {
-            cout << "c [appmc] "
+            cout << "c [appmcpb] "
             "[ " << std::setw(7) << std::setprecision(2) << std::fixed
             << (cpuTimeTotal()-startTime)
             << " ]"
@@ -717,7 +717,7 @@ string Counter::gen_rnd_bits(
 
 void Counter::print_xor(const vector<uint32_t>& vars, const uint32_t rhs)
 {
-    cout << "c [appmc] Added XOR ";
+    cout << "c [appmcpb] Added XOR ";
     for (size_t i = 0; i < vars.size(); i++) {
         cout << vars[i]+1;
         if (i < vars.size()-1) {
@@ -782,7 +782,7 @@ void Counter::openLogFile()
     if (!conf.logfilename.empty()) {
         logfile.open(conf.logfilename.c_str());
         if (!logfile.is_open()) {
-            cout << "[appmc] Cannot open Counter log file '" << conf.logfilename
+            cout << "[appmcpb] Cannot open Counter log file '" << conf.logfilename
                  << "' for writing." << endl;
             exit(1);
         }

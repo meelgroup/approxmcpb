@@ -326,7 +326,7 @@ void read_stdin()
 
 void print_num_solutions(uint32_t cellSolCount, uint32_t hashCount)
 {
-    cout << "c [appmc] Number of solutions is: "
+    cout << "c [appmcpb] Number of solutions is: "
     << cellSolCount << "*2**" << hashCount << endl;
 
     mpz_t num_sols;
@@ -393,13 +393,13 @@ int main(int argc, char** argv)
 
     if (logfilename != "") {
         appmc->set_up_log(logfilename);
-        cout << "c [appmc] Logfile set " << logfilename << endl;
+        cout << "c [appmcpb] Logfile set " << logfilename << endl;
     }
 
     if (vm.count("input") != 0) {
         vector<string> inp = vm["input"].as<vector<string> >();
         if (inp.size() > 1) {
-            cout << "[appmc] ERROR: you must only give one CNF as input" << endl;
+            cout << "[appmcpb] ERROR: you must only give one CNF as input" << endl;
             exit(-1);
         }
         read_in_file(inp[0].c_str());

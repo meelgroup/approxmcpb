@@ -64,7 +64,7 @@ DLL_PUBLIC void setup_sampling_vars(AppMCPrivateData* data)
     if (data->conf.sampling_set.empty()) {
         if (data->conf.verb) {
             cout
-            << "c [appmc] WARNING! Sampling set was not declared! We will be **VERY** slow"
+            << "c [appmcpb] WARNING! Sampling set was not declared! We will be **VERY** slow"
             << endl;
         }
         for (size_t i = 0; i < data->counter.solver->nVars(); i++) {
@@ -73,13 +73,13 @@ DLL_PUBLIC void setup_sampling_vars(AppMCPrivateData* data)
     }
 
     if (data->conf.verb) {
-        cout << "c [appmc] Sampling set size: " << data->conf.sampling_set.size() << endl;
+        cout << "c [appmcpb] Sampling set size: " << data->conf.sampling_set.size() << endl;
         if (data->conf.sampling_set.size() > 100) {
             cout
-            << "c [appmc] Sampling var set contains over 100 variables, not displaying"
+            << "c [appmcpb] Sampling var set contains over 100 variables, not displaying"
             << endl;
         } else {
-            cout << "c [appmc] Sampling set: ";
+            cout << "c [appmcpb] Sampling set: ";
             for (auto v: data->conf.sampling_set) {
                 cout << v+1 << ", ";
             }
@@ -213,16 +213,16 @@ DLL_PUBLIC bool AppMC::get_reuse_models()
 DLL_PUBLIC ApproxMC::SolCount AppMC::count()
 {
     if (data->conf.verb > 2) {
-        cout << "c [appmc] using seed: " << data->conf.seed << endl;
+        cout << "c [appmcpb] using seed: " << data->conf.seed << endl;
     }
 
     if (data->conf.epsilon < 0.0) {
-        cout << "[appmc] ERROR: invalid epsilon" << endl;
+        cout << "[appmcpb] ERROR: invalid epsilon" << endl;
         exit(-1);
     }
 
     if (data->conf.delta <= 0.0 || data->conf.delta > 1.0) {
-        cout << "[appmc] ERROR: invalid delta" << endl;
+        cout << "[appmcpb] ERROR: invalid delta" << endl;
         exit(-1);
     }
 
